@@ -108,7 +108,6 @@ dbt test
 ---
 ## Project Structure
 ```
-graphql
 ├── ingest/            # JSON cleanup, IP enrichment, product crawling
 ├── pipeline/          # GCS export, BigQuery load, Pub/Sub trigger
 ├── analytics/         # dbt project (seeds, staging, marts)
