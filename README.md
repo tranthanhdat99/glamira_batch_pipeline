@@ -55,9 +55,9 @@ A streamlined batch ETL and analytics workflow for the Glamira clickstream datas
 - **MongoDB**: Running locally or via VM; configured in `config/mongo.yaml`.
 
 - **YAML Configs**:
-- `config/gcp.yaml`: GCS bucket, BigQuery dataset, Pub/Sub subscription.  
-- `config/mongo.yaml`: Mongo URI, database, and collection names.  
-- `config/ingest.yaml`: IP2Location DB path, product crawl settings.  
+  - ` config/gcp.yaml`: GCS bucket, BigQuery dataset, Pub/Sub subscription.  
+  - `config/mongo.yaml`: Mongo URI, database, and collection names.  
+  - `config/ingest.yaml`: IP2Location DB path, product crawl settings.  
 
 - **IP2Location DB**: Download `IP2LOCATION-LITE-DB11.IPV6.BIN` and set its path in `config/ingest.yaml`.  
 
