@@ -206,3 +206,20 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 data/IP2LOCATION-LITE-DB11.IPV6.BIN
+
+# dbt build artifacts
+analytics/target/
+analytics/dbt_modules/
+
+# Scrapy logs
+logs/
+*.log
+
+# Configuration backups
+config/*.key
+config/*.pem
+
+
+# Local state files
+last_export.txt
+checkpoint.txt
