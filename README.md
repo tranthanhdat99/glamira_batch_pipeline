@@ -30,6 +30,7 @@ A streamlined batch ETL and analytics workflow for the Glamira clickstream datas
                ▼
  [ Analytics-ready star schema ]
 ```
+---
 ## High‑Level Overview
 
 ### 1. Ingestion (`ingest/`) 
@@ -46,12 +47,14 @@ A streamlined batch ETL and analytics workflow for the Glamira clickstream datas
 - **Staging** (`stg_*`): Clean and shape raw BigQuery tables into staging views.  
 - **Marts** (`dim_*`, `fact_orders`): Build canonical dimension tables and the `fact_orders` fact in a star schema.  
 
+---
 ## Prerequisites & Configuration
 
 - **Python**: 3.8+  
 - **GCP Credentials**: Set up Application Default Credentials for BigQuery & GCS.  
 - **MongoDB**: Running locally or via VM; configured in `config/mongo.yaml`.  
 
+---
 ### YAML Configs
 - `config/gcp.yaml`: GCS bucket, BigQuery dataset, Pub/Sub subscription.  
 - `config/mongo.yaml`: Mongo URI, database, and collection names.  
@@ -59,7 +62,8 @@ A streamlined batch ETL and analytics workflow for the Glamira clickstream datas
 
 - **IP2Location DB**: Download `IP2LOCATION-LITE-DB11.IPV6.BIN` and set its path in `config/ingest.yaml`.  
 
-## ⚙️ Installation
+---
+## Installation
 
 ```bash
 # Clone the repository
@@ -72,4 +76,51 @@ pip install -r requirements.txt
 # Install dbt dependencies
 cd analytics
 pip install -r requirements.txt
+```
+
+---
+## Running the Pipeline
+
+Follow these steps to execute each stage:
+
+```bash
+# 1. Normalize raw JSONL files
+python ingest/correct_database.py
+
+# 2. Enrich IP geolocation data in MongoDB
+python ingest/process_ips.py
+
+# 3. Crawl and save product names
+scrapy crawl product_spider
+
+# 4. Export data to GCS
+#    (dump MongoDB collections to Google Cloud Storage)
+python pipeline/export_gcs.py
+
+# 5. Load data into BigQuery
+#    (ingest JSONL from GCS into BigQuery raw tables)
+python pipeline/load_to_bigquery.py --mode append
+
+# 6. Switch to analytics then seed and build dbt models
+cd analytics
+dbt seed --select product_names exchange_rates
+dbt run --select stg_* dim_* fact_orders
+dbt test
+```
+
+---
+## 📂 Project Structure (High‑Level)
+```
+graphql
+├── ingest/            # JSON cleanup, IP enrichment, product crawling
+├── pipeline/          # GCS export, BigQuery load, Pub/Sub trigger
+├── analytics/         # dbt project (seeds, staging, marts)
+├── config/            # YAML configs for GCP, Mongo, ingest
+├── apps/              # CLI wrappers: run_ingest.py, run_pipeline.py
+├── libs/              # Shared helper modules
+├── data/              # static data (if any)
+├── docs/              # architecture diagrams, slides
+└── requirements.txt   # top‑level Python dependencies
+```
+
 
