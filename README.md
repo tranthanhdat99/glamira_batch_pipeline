@@ -83,24 +83,22 @@ pip install -r requirements.txt
 Follow these steps to execute each stage:
 
 ```bash
-# 1. Normalize raw JSONL files
-python ingest/correct_database.py
 
-# 2. Enrich IP geolocation data in MongoDB
+# 1. Enrich IP geolocation data in MongoDB
 python ingest/process_ips.py
 
-# 3. Crawl and save product names
+# 2. Crawl and save product names
 scrapy crawl product_spider
 
-# 4. Export data to GCS
+# 3. Export data to GCS
 #    (dump MongoDB collections to Google Cloud Storage)
 python pipeline/export_gcs.py
 
-# 5. Load data into BigQuery
+# 4. Load data into BigQuery
 #    (ingest JSONL from GCS into BigQuery raw tables)
 python pipeline/load_to_bigquery.py --mode append
 
-# 6. Switch to analytics then seed and build dbt models
+# 5. Switch to analytics then seed and build dbt models
 cd analytics
 dbt seed --select product_names exchange_rates
 dbt run --select stg_* dim_* fact_orders
@@ -108,7 +106,7 @@ dbt test
 ```
 
 ---
-## 📂 Project Structure (High‑Level)
+## Project Structure
 ```
 graphql
 ├── ingest/            # JSON cleanup, IP enrichment, product crawling
