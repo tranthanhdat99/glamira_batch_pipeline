@@ -1,6 +1,6 @@
 # Glamira Batch Data Pipeline & Analytics
 
-A streamlined batch ETL and analytics workflow for the Glamira clickstream dataset (same source as the streaming pipeline project), transforming raw JSONL events into a star‑schema in BigQuery with dbt.
+A streamlined batch ETL and analytics workflow for the Glamira clickstream dataset, transforming raw JSONL events into a star‑schema in BigQuery with dbt.
 
 ---
 
