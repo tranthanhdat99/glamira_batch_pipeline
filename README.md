@@ -52,10 +52,9 @@ A streamlined batch ETL and analytics workflow for the Glamira clickstream datas
 
 - **Python**: 3.8+  
 - **GCP Credentials**: Set up Application Default Credentials for BigQuery & GCS.  
-- **MongoDB**: Running locally or via VM; configured in `config/mongo.yaml`.  
+- **MongoDB**: Running locally or via VM; configured in `config/mongo.yaml`.
 
----
-### YAML Configs
+- **YAML Configs**:
 - `config/gcp.yaml`: GCS bucket, BigQuery dataset, Pub/Sub subscription.  
 - `config/mongo.yaml`: Mongo URI, database, and collection names.  
 - `config/ingest.yaml`: IP2Location DB path, product crawl settings.  
