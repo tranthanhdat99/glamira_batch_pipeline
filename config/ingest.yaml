@@ -1,0 +1,19 @@
+ingest:
+  batch_size: 20000
+  test_limit: 100000
+  sample_size: 1000000
+  checkpoint_file: "checkpoint.txt"
+  cache_file_ips: "unique_ips.json"
+  cache_file_loc: "ip_locations.json"
+  product_collections:
+    - view_product_detail
+    - select_product_option
+    - select_product_option_quality
+    - add_to_cart_action
+    - product_detail_recommendation_visible
+    - product_detail_recommendation_noticed
+    - product_view_all_recommend_clicked
+  output_csv: "analytics/seeds/product_names.csv"
+  concurrency: 10             # Number of parallel fetches
+  http_timeout: 5             # Seconds per request
+  ip2location_db_path: "data/IP2LOCATION-LITE-DB11.IPV6.BIN"

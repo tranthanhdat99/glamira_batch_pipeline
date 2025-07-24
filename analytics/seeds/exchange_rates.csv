@@ -1,0 +1,31 @@
+currency_symbol,currency_code,currency_name,exchange_rate_to_usd
+$,USD,US Dollar,1.00
+€,EUR,Euro,1.12
+£,GBP,British Pound,1.25
+¥,JPY,Japanese Yen,0.0073
+A$,AUD,Australian Dollar,0.68
+C$,CAD,Canadian Dollar,0.75
+SGD $,SGD,Singapore Dollar,0.74
+CHF,CHF,Swiss Franc,1.10
+元,CNY,Chinese Yuan,0.14
+HK$,HKD,Hong Kong Dollar,0.13
+NZ$,NZD,New Zealand Dollar,0.65
+kr,SEK,Swedish Krona,0.095
+kr,NOK,Norwegian Krone,0.093
+kr,DKK,Danish Krone,0.15
+₩,KRW,South Korean Won,0.00075
+₹,INR,Indian Rupee,0.012
+R$,BRL,Brazilian Real,0.22
+R,ZAR,South African Rand,0.055
+₺,TRY,Turkish Lira,0.036
+MX$,MXN,Mexican Peso,0.055
+₽,RUB,Russian Ruble,0.013
+د.إ,AED,Emirati Dirham,0.27
+ر.س,SAR,Saudi Riyal,0.27
+COL$,COP,Colombian Peso,0.00026
+Rp,IDR,Indonesian Rupiah,0.000065
+RM,MYR,Malaysian Ringgit,0.23
+฿,THB,Thai Baht,0.029
+₫,VND,Vietnamese Dong,0.000043
+₱,PHP,Philippine Peso,0.017
+zł,PLN,Polish Zloty,0.26

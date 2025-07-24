@@ -1,0 +1,87 @@
+version: 2
+
+sources:
+  - name: glamira_raw
+    database: "vernal-etching-449814-s9"
+    schema: "glamira_raw"
+    tables:
+      - name: summary_raw
+        description: "Raw event summary table loaded from MongoDB"
+        columns:
+          - name: _id
+            description: "MongoDB ObjectId for each record"
+          - name: time_stamp
+            description: "Event timestamp (epoch or formatted string)"
+          - name: ip
+            description: "Client IP address"
+          - name: user_agent
+            description: "Client user agent string"
+          - name: resolution
+            description: "Screen resolution of the client device"
+          - name: user_id_db
+            description: "Internal user identifier (DB)"
+          - name: device_id
+            description: "Identifier for the client device"
+          - name: api_version
+            description: "Version of the API used"
+          - name: store_id
+            description: "Identifier for the store/location"
+          - name: local_time
+            description: "Local timestamp on client device"
+          - name: show_recommendation
+            description: "Flag indicating if recommendations were shown (TBD)"
+          - name: recommendation
+            description: "Flag indicating if a recommendation was acted upon (TBD)"
+          - name: current_url
+            description: "URL of the current page/event"
+          - name: referrer_url
+            description: "Referring URL leading to this event"
+          - name: email_address
+            description: "User email address if available"
+          - name: utm_source
+            description: "UTM source parameter for marketing attribution (TBD)"
+          - name: utm_medium
+            description: "UTM medium parameter for marketing attribution (TBD)"
+          - name: key_search
+            description: "Search keyword used by the user (TBD)"
+          - name: collection
+            description: "Name of the action collection (e.g. view_product_detail, checkout)"
+          - name: product_id
+            description: "Identifier of the product involved in the event"
+          - name: viewing_product_id
+            description: "Alternate product identifier for some events"
+          - name: cat_id
+            description: "Category identifier (TBD)"
+          - name: collect_id
+            description: "Collection identifier for grouping (TBD)"
+          - name: price
+            description: "Unit price of the product viewed or added"
+          - name: currency
+            description: "Currency code for the price"
+          - name: order_id
+            description: "Order identifier for purchase events"
+          - name: recommendation_product_id
+            description: "Product ID for recommended items"
+          - name: recommendation_clicked_position
+            description: "Position index of clicked recommendation (TBD)"
+          - name: recommendation_product_position
+            description: "Position index of the recommended product in the UI"
+          - name: is_paypal
+            description: "Whether PayPal was used for this event"
+          - name: option
+            description: "Nested record of product options"
+          - name: cart_products
+            description: "Repeated record of cart items and their options"
+      - name: ip_locations_raw
+        description: "IP geolocation lookup results loaded from MongoDB"
+        columns:
+          - name: ip
+            description: "Client IP address"
+          - name: country
+            description: "Two-letter country code from IP2Location (e.g. 'US', 'SG')"
+          - name: region
+            description: "Region or state code from IP2Location"
+          - name: city
+            description: "City name from IP2Location"
+          - name: timezone
+            description: "Time zone identifier from IP2Location (e.g. 'Asia/Singapore')"

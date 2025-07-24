@@ -1,0 +1,6 @@
+gcp:
+  project_id: "vernal-etching-449814-s9"
+  bucket_name: "glamira_ttd"
+  data_export_folder: "data_export"
+  data_fixed_folder: "data_export_fixed"
+  pubsub_subscription: "export-trigger-sub"
