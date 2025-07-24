@@ -77,10 +77,9 @@ This document describes the **raw** BigQuery tables in the `glamira_raw` dataset
 | Column          | Type   | Description                                             |
 |---------------- |------- |-------------------------------------------------------- |
 | `ip`            | STRING | Client IP address                                       |
-| `country_short` | STRING | ISO 3166-1 alpha-2 country code                         |
+| `country_short` | STRING | 2-digit country code                         |
 | `country_long`  | STRING | Full country name                                       |
 | `region`        | STRING | Region or state                                        |
 | `city`          | STRING | City name                                              |
 | `timezone`      | STRING | Timezone (e.g. `Europe/Berlin`)                         |
 
-*Columns with blank descriptions indicate fields needing further clarification.*
