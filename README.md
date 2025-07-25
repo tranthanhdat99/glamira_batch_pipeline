@@ -66,8 +66,8 @@ A streamlined batch ETL and analytics workflow for the Glamira clickstream datas
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/glamira-batch-pipeline.git
-cd glamira-batch-pipeline
+git clone https://github.com/tranthanhdat99/glamira_batch_pipeline.git
+cd glamira_batch_pipeline
 
 # Install Python dependencies
 pip install -r requirements.txt
@@ -108,14 +108,14 @@ dbt test
 ---
 ## Project Structure
 ```
-├── ingest/            # JSON cleanup, IP enrichment, product crawling
+├── ingest/            # IP enrichment, product crawling
 ├── pipeline/          # GCS export, BigQuery load, Pub/Sub trigger
 ├── analytics/         # dbt project (seeds, staging, marts)
 ├── config/            # YAML configs for GCP, Mongo, ingest
 ├── apps/              # CLI wrappers: run_ingest.py, run_pipeline.py
 ├── libs/              # Shared helper modules
-├── data/              # static data (if any)
-├── docs/              # architecture diagrams, slides
+├── data/              # static data
+├── docs/              # data dictionary description
 └── requirements.txt   # top‑level Python dependencies
 ```
 
